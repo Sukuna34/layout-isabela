@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleHub - Melhores Marcas e Preços</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">StyleHub</h1>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#marcas">Marcas</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Descubra as Melhores Marcas de Moda</h2>
+                <p>Compare preços e encontre o melhor estilo para você</p>
+                <button class="cta-button">Explorar Marcas</button>
+            </div>
+        </section>
+
+        <section id="marcas" class="brands-section">
+            <div class="container">
+                <h2>Marcas em Destaque</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">Todas</button>
+                    <button class="filter-btn" data-category="luxury">Luxo</button>
+                    <button class="filter-btn" data-category="casual">Casual</button>
+                    <button class="filter-btn" data-category="sport">Esportivo</button>
+                </div>
+                
+                <div class="brands-grid" id="brandsGrid">
+                    <!-- Marcas serão inseridas via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="ofertas" class="offers-section">
+            <div class="container">
+                <h2>Ofertas Especiais</h2>
+                <div class="offers-grid">
+                    <div class="offer-card">
+                        <div class="discount">30% OFF</div>
+                        <h3>Zara</h3>
+                        <p>Coleção Outono/Inverno</p>
+                        <button class="offer-btn">Ver Ofertas</button>
+                    </div>
+                    <div class="offer-card">
+                        <div class="discount">25% OFF</div>
+                        <h3>H&M</h3>
+                        <p>Peças Básicas</p>
+                        <button class="offer-btn">Ver Ofertas</button>
+                    </div>
+                    <div class="offer-card">
+                        <div class="discount">40% OFF</div>
+                        <h3>Nike</h3>
+                        <p>Linha Esportiva</p>
+                        <button class="offer-btn">Ver Ofertas</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StyleHub</h3>
+                    <p>Seu guia definitivo para moda e estilo</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>Email: contato@stylehub.com</p>
+                    <p>Tel: (11) 9999-9999</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Desenvolvido por</h4>
+                    <p>Isabela & Jessica</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StyleHub. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <style>
+/* CSS Integrado - style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.navbar {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ffd1dc;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23f0f0f0" width="1000" height="600"/><text x="500" y="300" font-family="Arial" font-size="40" fill="%23ccc" text-anchor="middle">Fashion Background</text></svg>');
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Brands Section */
+.brands-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.brands-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #ff69b4;
+    background: transparent;
+    color: #ff69b4;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #ff69b4;
+    color: white;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.brand-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.brand-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.brand-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.brand-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.brand-category {
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.price-range {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff1493;
+    margin-bottom: 1rem;
+}
+
+.brand-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.brand-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Offers Section */
+.offers-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: white;
+}
+
+.offers-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.offer-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+.discount {
+    background: #ff1493;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.offer-btn {
+    background: white;
+    color: #ff69b4;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.offer-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #ff69b4;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #555;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: #ff69b4;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+
+    <script>
+// JavaScript Integrado - script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Dados das marcas com links para produtos
+    const brands = [
+        {
+            name: 'Zara',
+            category: 'casual',
+            priceRange: 'R$ 50 - R$ 300',
+            logo: 'Z',
+            productUrl: 'https://www.zara.com/br/pt/mulher-camisas-c269186.html'
+        },
+        {
+            name: 'Gucci',
+            category: 'luxury',
+            priceRange: 'R$ 800 - R$ 5000',
+            logo: 'G',
+            productUrl: 'https://www.gucci.com/br/pt/ca/women/ready-to-wear-for-women-c-women-readytowear'
+        },
+        {
+            name: 'Nike',
+            category: 'sport',
+            priceRange: 'R$ 80 - R$ 600',
+            logo: 'N',
+            productUrl: 'https://www.nike.com.br/calcados-femininos'
+        },
+        {
+            name: 'H&M',
+            category: 'casual',
+            priceRange: 'R$ 30 - R$ 200',
+            logo: 'H',
+            productUrl: 'https://www2.hm.com/pt_br/mulher/comprar-por-produto/blusas-camisetas.html'
+        },
+        {
+            name: 'Louis Vuitton',
+            category: 'luxury',
+            priceRange: 'R$ 1200 - R$ 8000',
+            logo: 'LV',
+            productUrl: 'https://br.louisvuitton.com/por-br/mulher/bolsas/_/N-tfr7qdp'
+        },
+        {
+            name: 'Adidas',
+            category: 'sport',
+            priceRange: 'R$ 70 - R$ 500',
+            logo: 'A',
+            productUrl: 'https://www.adidas.com.br/mulher-calcados'
+        },
+        {
+            name: 'Chanel',
+            category: 'luxury',
+            priceRange: 'R$ 1500 - R$ 10000',
+            logo: 'C',
+            productUrl: 'https://www.chanel.com/br/moda/bolsas/'
+        },
+        {
+            name: 'Uniqlo',
+            category: 'casual',
+            priceRange: 'R$ 40 - R$ 250',
+            logo: 'U',
+            productUrl: 'https://www.uniqlo.com/br/pt/women/tops'
+        },
+        {
+            name: 'Puma',
+            category: 'sport',
+            priceRange: 'R$ 60 - R$ 400',
+            logo: 'P',
+            productUrl: 'https://br.puma.com/calcados/feminino.html'
+        }
+    ];
+
+    // Função para renderizar marcas
+    function renderBrands(brandsToShow) {
+        const brandsGrid = document.getElementById('brandsGrid');
+        brandsGrid.innerHTML = '';
+
+        brandsToShow.forEach((brand, index) => {
+            const brandCard = document.createElement('div');
+            brandCard.className = 'brand-card';
+            brandCard.style.animationDelay = `${index * 0.1}s`;
+            
+            brandCard.innerHTML = `
+                <div class="brand-logo">${brand.logo}</div>
+                <h3>${brand.name}</h3>
+                <p class="brand-category">${getCategoryName(brand.category)}</p>
+                <p class="price-range">${brand.priceRange}</p>
+                <button class="brand-btn" data-url="${brand.productUrl}">Ver Produtos</button>
+            `;
+            
+            brandsGrid.appendChild(brandCard);
+        });
+    }
+
+    // Função para obter nome da categoria
+    function getCategoryName(category) {
+        const categories = {
+            'luxury': 'Luxo',
+            'casual': 'Casual',
+            'sport': 'Esportivo'
+        };
+        return categories[category] || category;
+    }
+
+    // Filtro de marcas
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-category');
+            let filteredBrands;
+            
+            if (category === 'all') {
+                filteredBrands = brands;
+            } else {
+                filteredBrands = brands.filter(brand => brand.category === category);
+            }
+            
+            renderBrands(filteredBrands);
+        });
+    });
+
+    // Menu mobile
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Animate hamburger
+        const spans = hamburger.querySelectorAll('span');
+        if (navMenu.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
+            const spans = hamburger.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        });
+    });
+
+    // CTA Button functionality
+    document.querySelector('.cta-button').addEventListener('click', function() {
+        document.querySelector('#marcas').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    // Render inicial das marcas
+    renderBrands(brands);
+
+    // Adicionar funcionalidade aos botões
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('brand-btn')) {
+            const productUrl = e.target.getAttribute('data-url');
+            if (productUrl) {
+                // Abre o link em uma nova aba
+                window.open(productUrl, '_blank');
+            }
+        }
+        
+        if (e.target.classList.contains('offer-btn')) {
+            // Links para ofertas específicas de cada marca
+            const offerText = e.target.previousElementSibling.previousElementSibling.textContent;
+            let offerUrl;
+            
+            if (offerText.includes('Zara')) {
+                offerUrl = 'https://www.zara.com/br/pt/mulher-sale-c454020.html';
+            } else if (offerText.includes('H&M')) {
+                offerUrl = 'https://www2.hm.com/pt_br/mulher/ofertas.html';
+            } else if (offerText.includes('Nike')) {
+                offerUrl = 'https://www.nike.com.br/outlet';
+            }
+            
+            if (offerUrl) {
+                window.open(offerUrl, '_blank');
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>
